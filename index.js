@@ -7,8 +7,8 @@ let pin;
 //GET a session ID
 function getSessionID() {
   return new Promise(function(callback) {
-    request('http://' + ip + '/fsapi/CREATE_SESSION?pin=' + pin, function (error, response, body) {
-      parseXML(body, function (err, parseResult) {
+    request('http://' + ip + '/fsapi/CREATE_SESSION?pin=' + pin, function(error, response, body) {
+      parseXML(body, function(err, parseResult) {
         callback(parseResult.fsapiResponse.sessionId[0]);
       });
     });
@@ -122,5 +122,5 @@ module.exports = function(ipAdress, radioPin) {
 
   this.setVolume = setVolume;
   this.getVolume = getVolume;
-  
+
 };
