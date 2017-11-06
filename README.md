@@ -1,8 +1,8 @@
 # WiFi-Radio
 [![dependencies Status](https://david-dm.org/ent8r/wifiradio/status.svg)](https://david-dm.org/ent8r/wifiradio)
 [![Travis](https://travis-ci.org/ENT8R/wifiradio.svg?branch=master)](https://travis-ci.org/ENT8R/wifiradio)
-[![NPM Version](http://img.shields.io/npm/v/wifiradio.svg)](https://www.npmjs.org/package/commander)
-[![NPM Downloads](https://img.shields.io/npm/dm/wifiradio.svg)](https://www.npmjs.org/package/commander)
+[![NPM Version](http://img.shields.io/npm/v/wifiradio.svg)](https://www.npmjs.org/package/wifiradio)
+[![NPM Downloads](https://img.shields.io/npm/dm/wifiradio.svg)](https://www.npmjs.org/package/wifiradio)
 
 NodeJS module for controlling WiFi-radios
 
