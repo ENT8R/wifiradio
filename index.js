@@ -36,14 +36,13 @@ function setPower(state) {
 //GET Power
 function getPower(callback) {
   makeRequest('GET/netRemote.sys.power', '').then(function(result) {
-    callback(result.fsapiResponse.value[0].u8[0]);
+    callback(parseInt(result.fsapiResponse.value[0].u8[0]));
   });
 };
 
 //GET the first line of the display
 function getName(callback) {
   makeRequest('GET/netRemote.play.info.name', '').then(function(result) {
-    console.log(result);
     callback(result.fsapiResponse.value[0].c8_array[0]);
   });
 };
@@ -51,7 +50,6 @@ function getName(callback) {
 //GET the second line of the display
 function getText(callback) {
   makeRequest('GET/netRemote.play.info.text', '').then(function(result) {
-    console.log(result.fsapiResponse.value[0].c8_array[0]);
     callback(result.fsapiResponse.value[0].c8_array[0]);
   });
 };
@@ -64,7 +62,7 @@ function setMute(state) {
 //GET mute state
 function getMute(callback) {
   makeRequest('GET/netRemote.sys.audio.mute', '').then(function(result) {
-    callback(result.fsapiResponse.value[0].u8[0]);
+    callback(parseInt(result.fsapiResponse.value[0].u8[0]));
   });
 };
 
@@ -76,7 +74,7 @@ function setMode(mode) {
 //GET current mode
 function getMode(callback) {
   makeRequest('GET/netRemote.sys.mode', '').then(function(result) {
-    callback(result.fsapiResponse.value[0].u32[0]);
+    callback(parseInt(result.fsapiResponse.value[0].u32[0]));
   });
 };
 
@@ -96,7 +94,7 @@ function setVolume(value) {
 //GET the volume
 function getVolume(callback) {
   makeRequest('GET/netRemote.sys.audio.volume', '').then(function(result) {
-    callback(result.fsapiResponse.value[0].u8[0]);
+    callback(parseInt(result.fsapiResponse.value[0].u8[0]));
   });
 };
 
