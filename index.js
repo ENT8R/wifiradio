@@ -7,7 +7,12 @@ let pin;
 //GET a session ID
 function getSessionID() {
   return new Promise(function(callback) {
-    request(`http://${ip}/fsapi/CREATE_SESSION?pin=${pin}`, function(error, response, body) {
+    request({
+      url: `http://${ip}/fsapi/CREATE_SESSION`,
+      qs: {
+        pin,
+      }
+    }, function(error, response, body) {
       parseXML(body, function(err, parseResult) {
         callback(parseResult.fsapiResponse.sessionId[0]);
       });
@@ -18,8 +23,15 @@ function getSessionID() {
 //Make a request with a given operation and a possible value
 function makeRequest(operation, value = '') {
   return new Promise(function(callback) {
-    getSessionID().then(function(sessionId) {
-      request(`http://${ip}/fsapi/${operation}?pin=${pin}&sid=${sessionId}&value=${value}`, function(error, response, body) {
+    getSessionID().then(function(sid) {
+      request({
+        url: `http://${ip}/fsapi/${operation}`,
+        qs: {
+          pin,
+          sid,
+          value,
+        }
+      }, function(error, response, body) {
         parseXML(body, function(err, result) {
           callback(result);
         });
