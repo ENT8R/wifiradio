@@ -27,7 +27,7 @@ function getSessionID() {
 };
 
 //Make a request with a given operation and a possible value
-function makeRequest(operation, value = '') {
+function makeRequest(operation, value) {
     return new Promise((resolve, reject) => {
         getSessionID().then(sid => {
             request({
