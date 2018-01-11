@@ -16,7 +16,7 @@ function getSessionID() {
 };
 
 //Make a request with a given operation and a possible value
-function makeRequest(operation, value) {
+function makeRequest(operation, value = '') {
   return new Promise(function(callback) {
     getSessionID().then(function(sessionId) {
       request(`http://${ip}/fsapi/${operation}?pin=${pin}&sid=${sessionId}&value=${value}`, function(error, response, body) {
@@ -35,21 +35,21 @@ function setPower(state) {
 
 //GET Power
 function getPower(callback) {
-  makeRequest('GET/netRemote.sys.power', '').then(function(result) {
+  makeRequest('GET/netRemote.sys.power').then(function(result) {
     callback(parseInt(result.fsapiResponse.value[0].u8[0]));
   });
 };
 
 //GET the first line of the display
 function getName(callback) {
-  makeRequest('GET/netRemote.play.info.name', '').then(function(result) {
+  makeRequest('GET/netRemote.play.info.name').then(function(result) {
     callback(result.fsapiResponse.value[0].c8_array[0]);
   });
 };
 
 //GET the second line of the display
 function getText(callback) {
-  makeRequest('GET/netRemote.play.info.text', '').then(function(result) {
+  makeRequest('GET/netRemote.play.info.text').then(function(result) {
     callback(result.fsapiResponse.value[0].c8_array[0]);
   });
 };
@@ -61,7 +61,7 @@ function setMute(state) {
 
 //GET mute state
 function getMute(callback) {
-  makeRequest('GET/netRemote.sys.audio.mute', '').then(function(result) {
+  makeRequest('GET/netRemote.sys.audio.mute').then(function(result) {
     callback(parseInt(result.fsapiResponse.value[0].u8[0]));
   });
 };
@@ -73,7 +73,7 @@ function setMode(mode) {
 
 //GET current mode
 function getMode(callback) {
-  makeRequest('GET/netRemote.sys.mode', '').then(function(result) {
+  makeRequest('GET/netRemote.sys.mode').then(function(result) {
     callback(parseInt(result.fsapiResponse.value[0].u32[0]));
   });
 };
@@ -81,7 +81,7 @@ function getMode(callback) {
 //LIST available modes; returns a JSON array of all available modes
 //TODO: this method does not work at the moment. Needs some research
 function listModes(callback) {
-  makeRequest('LIST_GET_NEXT/netRemote.sys.caps.validModes/-1', '').then(function(result) {
+  makeRequest('LIST_GET_NEXT/netRemote.sys.caps.validModes/-1').then(function(result) {
     callback(JSON.stringify(result.fsapiResponse.item[0].field));
   });
 }
@@ -93,7 +93,7 @@ function setVolume(value) {
 
 //GET the volume
 function getVolume(callback) {
-  makeRequest('GET/netRemote.sys.audio.volume', '').then(function(result) {
+  makeRequest('GET/netRemote.sys.audio.volume').then(function(result) {
     callback(parseInt(result.fsapiResponse.value[0].u8[0]));
   });
 };
