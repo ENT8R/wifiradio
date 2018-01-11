@@ -117,8 +117,13 @@ function getVolume() {
 
 //And finally export the module
 module.exports = function (ipAdress, radioPin) {
-    if (!ipAdress) throw new Error('No IP adress specified');
-    if (!radioPin) throw new Error('No PIN specified');
+    if (!ipAdress) {
+        throw new Error('No IP adress specified');
+    }
+
+    if (!radioPin) {
+        throw new Error('No PIN specified');
+    }
 
     ip = ipAdress;
     pin = radioPin;
@@ -137,5 +142,4 @@ module.exports = function (ipAdress, radioPin) {
 
     this.setVolume = setVolume;
     this.getVolume = getVolume;
-
 };
