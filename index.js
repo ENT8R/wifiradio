@@ -6,15 +6,15 @@ let pin;
 
 //GET a session ID
 function getSessionID() {
-    return new Promise(function (callback) {
+    return new Promise((resolve, reject) => {
         request({
             url: `http://${ip}/fsapi/CREATE_SESSION`,
             qs: {
                 pin,
             },
-        }, function (error, response, body) {
-            parseXML(body, function (err, parseResult) {
-                callback(parseResult.fsapiResponse.sessionId[0]);
+        }, (error, response, body) => {
+            parseXML(body, (err, parseResult) => {
+                resolve(parseResult.fsapiResponse.sessionId[0]);
             });
         });
     });
@@ -22,8 +22,8 @@ function getSessionID() {
 
 //Make a request with a given operation and a possible value
 function makeRequest(operation, value = '') {
-    return new Promise(function (callback) {
-        getSessionID().then(function (sid) {
+    return new Promise((resolve, reject) => {
+        getSessionID().then(sid => {
             request({
                 url: `http://${ip}/fsapi/${operation}`,
                 qs: {
@@ -31,9 +31,9 @@ function makeRequest(operation, value = '') {
                     sid,
                     value,
                 },
-            }, function (error, response, body) {
-                parseXML(body, function (err, result) {
-                    callback(result);
+            }, (error, response, body) => {
+                parseXML(body, (err, result) => {
+                    resolve(result);
                 });
             });
         });
@@ -47,21 +47,21 @@ function setPower(state) {
 
 //GET Power
 function getPower(callback) {
-    makeRequest('GET/netRemote.sys.power').then(function (result) {
+    makeRequest('GET/netRemote.sys.power').then(result => {
         callback(parseInt(result.fsapiResponse.value[0].u8[0]));
     });
 };
 
 //GET the first line of the display
 function getName(callback) {
-    makeRequest('GET/netRemote.play.info.name').then(function (result) {
+    makeRequest('GET/netRemote.play.info.name').then(result => {
         callback(result.fsapiResponse.value[0].c8_array[0]);
     });
 };
 
 //GET the second line of the display
 function getText(callback) {
-    makeRequest('GET/netRemote.play.info.text').then(function (result) {
+    makeRequest('GET/netRemote.play.info.text').then(result => {
         callback(result.fsapiResponse.value[0].c8_array[0]);
     });
 };
@@ -73,7 +73,7 @@ function setMute(state) {
 
 //GET mute state
 function getMute(callback) {
-    makeRequest('GET/netRemote.sys.audio.mute').then(function (result) {
+    makeRequest('GET/netRemote.sys.audio.mute').then(result => {
         callback(parseInt(result.fsapiResponse.value[0].u8[0]));
     });
 };
@@ -85,7 +85,7 @@ function setMode(mode) {
 
 //GET current mode
 function getMode(callback) {
-    makeRequest('GET/netRemote.sys.mode').then(function (result) {
+    makeRequest('GET/netRemote.sys.mode').then(result => {
         callback(parseInt(result.fsapiResponse.value[0].u32[0]));
     });
 };
@@ -93,7 +93,7 @@ function getMode(callback) {
 //LIST available modes; returns a JSON array of all available modes
 //TODO: this method does not work at the moment. Needs some research
 function listModes(callback) {
-    makeRequest('LIST_GET_NEXT/netRemote.sys.caps.validModes/-1').then(function (result) {
+    makeRequest('LIST_GET_NEXT/netRemote.sys.caps.validModes/-1').then(result => {
         callback(JSON.stringify(result.fsapiResponse.item[0].field));
     });
 }
@@ -105,7 +105,7 @@ function setVolume(value) {
 
 //GET the volume
 function getVolume(callback) {
-    makeRequest('GET/netRemote.sys.audio.volume').then(function (result) {
+    makeRequest('GET/netRemote.sys.audio.volume').then(result => {
         callback(parseInt(result.fsapiResponse.value[0].u8[0]));
     });
 };
