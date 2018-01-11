@@ -13,7 +13,13 @@ function getSessionID() {
                 pin,
             },
         }, (error, response, body) => {
+            if (error || response.statusCode !== 200) {
+                return reject(error);
+            }
             parseXML(body, (err, parseResult) => {
+                if (err) {
+                    return reject(err);
+                }
                 resolve(parseResult.fsapiResponse.sessionId[0]);
             });
         });
@@ -32,7 +38,13 @@ function makeRequest(operation, value = '') {
                     value,
                 },
             }, (error, response, body) => {
+                if (error || response.statusCode !== 200) {
+                    return reject(error);
+                }
                 parseXML(body, (err, result) => {
+                    if (err) {
+                        return reject(err);
+                    }
                     resolve(result);
                 });
             });
