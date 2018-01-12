@@ -1,16 +1,18 @@
 # WiFi-Radio
-[![dependencies Status](https://david-dm.org/ent8r/wifiradio/status.svg)](https://david-dm.org/ent8r/wifiradio)
-[![Travis](https://travis-ci.org/ENT8R/wifiradio.svg?branch=master)](https://travis-ci.org/ENT8R/wifiradio)
-[![NPM Version](http://img.shields.io/npm/v/wifiradio.svg)](https://www.npmjs.org/package/wifiradio)
-[![NPM Downloads](https://img.shields.io/npm/dm/wifiradio.svg)](https://www.npmjs.org/package/wifiradio)
+
+[![dependencies Status](https://david-dm.org/ent8r/wifiradio/status.svg)](https://david-dm.org/ent8r/wifiradio) [![Travis](https://travis-ci.org/ENT8R/wifiradio.svg?branch=master)](https://travis-ci.org/ENT8R/wifiradio) [![NPM Version](http://img.shields.io/npm/v/wifiradio.svg)](https://www.npmjs.org/package/wifiradio) [![NPM Downloads](https://img.shields.io/npm/dm/wifiradio.svg)](https://www.npmjs.org/package/wifiradio)
 
 NodeJS module for controlling WiFi-radios
 
 ## Installation
-    npm install wifiradio --save
+
+```
+npm install wifiradio --save
+```
 
 ## Usage
-```js
+
+```javascript
 const wifiradio = require('wifiradio');
 
 const ip = '192.168.178.27'; //Change this to the ip adress of your radio
@@ -18,15 +20,27 @@ const pin = '1234'; //This is the default PIN for the radio. (Works in most case
 
 const radio = new wifiradio(ip, pin);
 
-radio.getPower()
-    .then(console.log);
+radio.setPower(1).then(function() {
+  radio.getPower().then(function(res) {
+    console.log('Power: ' + res);
+    radio.getMute().then(function(res) {
+      console.log('Mute: ' + res);
+      radio.getText().then(function(res) {
+        console.log('Text: ' + res);
+        radio.getMode().then(function(res) {
+          console.log('Mode: ' + res);
+        });
+      });
+    });
+  });
+});
 ```
 
 ## Features
 
 ### Power
 
-```js
+```javascript
 //Turn on
 radio.setPower(1);
 
@@ -40,7 +54,7 @@ radio.getPower()
 
 ### Mute
 
-```js
+```javascript
 //Mute on
 radio.setMute(1);
 
@@ -54,7 +68,7 @@ radio.getMute()
 
 ### Volume
 
-```js
+```javascript
 //Set volume (value from 1-20)
 radio.setVolume(10);
 
@@ -65,7 +79,7 @@ radio.getVolume()
 
 ### Modes
 
-```js
+```javascript
 //Set a mode
 radio.setMode(2);
 
@@ -76,7 +90,7 @@ radio.getMode()
 
 ### Display
 
-```js
+```javascript
 //Get the first line of the display
 radio.getName()
     .then(console.log);
@@ -91,4 +105,5 @@ radio.getText()
 There are many more requests that could be done by this module. If you think that something is missing just open an issue for that or make a pull request. If you need some help, you can have a look [here](https://github.com/flammy/fsapi/blob/master/FSAPI.md) for some further requests.
 
 ## License
+
 [GPL-3.0](https://github.com/ENT8R/wifiradio/blob/master/LICENSE)
