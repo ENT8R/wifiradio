@@ -7,20 +7,19 @@
 NodeJS module for controlling WiFi-radios
 
 ## Installation
-		npm install wifiradio --save
+    npm install wifiradio --save
 
 ## Usage
 ```js
 const wifiradio = require('wifiradio');
 
-const ip = "192.168.178.27"; //Change this to the ip adress of your radio
-const pin = "1234"; //This is the default PIN for the radio. (Works in most cases)
+const ip = '192.168.178.27'; //Change this to the ip adress of your radio
+const pin = '1234'; //This is the default PIN for the radio. (Works in most cases)
 
 const radio = new wifiradio(ip, pin);
 
-radio.getPower(function(val){
-	console.log(val);
-});
+radio.getPower()
+    .then(console.log);
 ```
 
 ## Features
@@ -35,9 +34,8 @@ radio.setPower(1);
 radio.setPower(0);
 
 //Get whether the radio is on or off (returns 0 or 1)
-radio.getPower(function(val){
-	console.log(val);
-});
+radio.getPower()
+    .then(console.log);
 ```
 
 ### Mute
@@ -48,12 +46,10 @@ radio.setMute(1);
 
 //Mute off
 radio.setMute(0);
-});
 
 //Get whether the radio is mute or not (returns 0 or 1)
-radio.getMute(function(val){
-	console.log(val);
-});
+radio.getMute()
+    .then(console.log);
 ```
 
 ### Volume
@@ -63,9 +59,8 @@ radio.getMute(function(val){
 radio.setVolume(10);
 
 //Get the current volume (returns a value from 1-20)
-radio.getVolume(function(val){
-	console.log(val);
-});
+radio.getVolume()
+    .then(console.log);
 ```
 
 ### Modes
@@ -75,23 +70,20 @@ radio.getVolume(function(val){
 radio.setMode(2);
 
 //Get the current playing mode
-radio.getMode(function(val){
-	console.log(val);
-});
+radio.getMode()
+    .then(console.log);
 ```
 
 ### Display
 
 ```js
 //Get the first line of the display
-radio.getName(function(val){
-	console.log(val);
-});
+radio.getName()
+    .then(console.log);
 
 //Get the second line of the display
-radio.getText(function(val){
-	console.log(val);
-});
+radio.getText()
+    .then(console.log);
 ```
 
 ## Contributing
@@ -99,4 +91,4 @@ radio.getText(function(val){
 There are many more requests that could be done by this module. If you think that something is missing just open an issue for that or make a pull request. If you need some help, you can have a look [here](https://github.com/flammy/fsapi/blob/master/FSAPI.md) for some further requests.
 
 ## License
-[GPL-3.0](https://github.com/ENT8R/HTMLEmails/blob/master/LICENSE)
+[GPL-3.0](https://github.com/ENT8R/wifiradio/blob/master/LICENSE)
