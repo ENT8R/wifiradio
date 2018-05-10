@@ -1,6 +1,7 @@
 # WiFi-Radio
 
 [![dependencies Status](https://david-dm.org/ent8r/wifiradio/status.svg)](https://david-dm.org/ent8r/wifiradio) [![Travis](https://travis-ci.org/ENT8R/wifiradio.svg?branch=master)](https://travis-ci.org/ENT8R/wifiradio) [![NPM Version](http://img.shields.io/npm/v/wifiradio.svg)](https://www.npmjs.org/package/wifiradio) [![NPM Downloads](https://img.shields.io/npm/dm/wifiradio.svg)](https://www.npmjs.org/package/wifiradio)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FENT8R%2Fwifiradio.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FENT8R%2Fwifiradio?ref=badge_shield)
 
 NodeJS module for controlling WiFi-radios
 
@@ -107,3 +108,6 @@ There are many more requests that could be done by this module. If you think tha
 ## License
 
 [GPL-3.0](https://github.com/ENT8R/wifiradio/blob/master/LICENSE)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FENT8R%2Fwifiradio.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FENT8R%2Fwifiradio?ref=badge_large)
