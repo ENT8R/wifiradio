@@ -14,7 +14,7 @@ const radio = new wifiradio(ip, pin);
 
 
 describe('wifiradio', function() {
-  this.slow(1500);
+  this.slow(500);
 
   describe('#setPower()', () => {
     it('should indicate that the operation was successful', (done) => {
