@@ -1,6 +1,6 @@
 {
   "name": "wifiradio",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "NodeJS module for controlling WiFi-radios",
   "keywords": [
     "wifiradio",
