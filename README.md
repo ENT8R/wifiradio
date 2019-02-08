@@ -15,24 +15,27 @@ npm install wifiradio --save
 ```javascript
 const wifiradio = require('wifiradio');
 
-const ip = '192.168.178.27'; //Change this to the ip adress of your radio
-const pin = '1234'; //This is the default PIN for the radio. (Works in most cases)
+const ip = '192.168.178.27'; // Change this to the ip adress of your radio
+const pin = '1234'; // This is the default PIN for the radio. (Works in most cases)
 
 const radio = new wifiradio(ip, pin);
 
 radio.setPower(1).then(function() {
   radio.getPower().then(function(res) {
     console.log('Power: ' + res);
-    radio.getMute().then(function(res) {
-      console.log('Mute: ' + res);
-      radio.getText().then(function(res) {
-        console.log('Text: ' + res);
-        radio.getMode().then(function(res) {
-          console.log('Mode: ' + res);
-        });
-      });
-    });
   });
+});
+
+radio.getMute().then(function(res) {
+  console.log('Mute: ' + res);
+});
+
+radio.getText().then(function(res) {
+  console.log('Text: ' + res);
+});
+
+radio.getMode().then(function(res) {
+  console.log('Mode: ' + res);
 });
 ```
 
@@ -41,13 +44,13 @@ radio.setPower(1).then(function() {
 ### Power
 
 ```javascript
-//Turn on
+// Turn on
 radio.setPower(1);
 
-//Turn off
+// Turn off
 radio.setPower(0);
 
-//Get whether the radio is on or off (returns 0 or 1)
+// Get whether the radio is on or off (returns 0 or 1)
 radio.getPower()
     .then(console.log);
 ```
@@ -55,13 +58,13 @@ radio.getPower()
 ### Mute
 
 ```javascript
-//Mute on
+// Mute on
 radio.setMute(1);
 
-//Mute off
+// Mute off
 radio.setMute(0);
 
-//Get whether the radio is mute or not (returns 0 or 1)
+// Get whether the radio is mute or not (returns 0 or 1)
 radio.getMute()
     .then(console.log);
 ```
@@ -69,10 +72,10 @@ radio.getMute()
 ### Volume
 
 ```javascript
-//Set volume (value from 1-20)
+// Set volume (value from 1-20)
 radio.setVolume(10);
 
-//Get the current volume (returns a value from 1-20)
+// Get the current volume (returns a value from 1-20)
 radio.getVolume()
     .then(console.log);
 ```
@@ -80,10 +83,10 @@ radio.getVolume()
 ### Modes
 
 ```javascript
-//Set a mode
+// Set a mode
 radio.setMode(2);
 
-//Get the current playing mode
+// Get the current playing mode
 radio.getMode()
     .then(console.log);
 ```
@@ -91,11 +94,11 @@ radio.getMode()
 ### Display
 
 ```javascript
-//Get the first line of the display
+// Get the first line of the display
 radio.getName()
     .then(console.log);
 
-//Get the second line of the display
+// Get the second line of the display
 radio.getText()
     .then(console.log);
 ```
