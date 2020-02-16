@@ -16,7 +16,7 @@
     "nodejs",
     "node-js"
   ],
-  "main": "index.js",
+  "main": "lib/wifiradio.js",
   "scripts": {
     "start": "node index.js",
     "lint": "eslint **.js",
@@ -33,11 +33,11 @@
   },
   "license": "GPL-3.0",
   "dependencies": {
-    "xml2js": "^0.4.19"
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^6.1.0",
-    "mocha": "^6.2.0"
+    "eslint": "^6.8.0",
+    "mocha": "^7.0.1"
   }
 }
