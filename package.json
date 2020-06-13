@@ -16,6 +16,9 @@
     "nodejs",
     "node-js"
   ],
+  "files": [
+    "lib/"
+  ],
   "main": "lib/wifiradio.js",
   "scripts": {
     "start": "node index.js",
