@@ -2,6 +2,29 @@
   "name": "wifiradio",
   "version": "0.3.3",
   "description": "NodeJS module for controlling WiFi-radios",
+  "files": [
+    "lib/"
+  ],
+  "main": "lib/wifiradio.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "npx eslint **/*.js",
+    "test": "npm run lint",
+    "mocha": "npx mocha"
+  },
+  "dependencies": {
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^7.11.0",
+    "mocha": "^8.2.0"
+  },
+  "author": "ENT8R <info.ent8r@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ENT8R/wifiradio.git"
+  },
   "keywords": [
     "wifiradio",
     "wifi-radio",
@@ -16,31 +39,8 @@
     "nodejs",
     "node-js"
   ],
-  "files": [
-    "lib/"
-  ],
-  "main": "lib/wifiradio.js",
-  "scripts": {
-    "start": "node index.js",
-    "lint": "eslint **/*.js",
-    "test": "npm run lint",
-    "mocha": "mocha"
-  },
-  "author": "ENT8R <info.ent8r@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ENT8R/wifiradio.git"
-  },
   "bugs": {
     "email": "info.ent8r@gmail.com"
   },
-  "license": "GPL-3.0",
-  "dependencies": {
-    "xml2js": "^0.4.23"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^7.2.0",
-    "mocha": "^8.0.1"
-  }
+  "license": "GPL-3.0"
 }
