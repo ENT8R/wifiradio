@@ -41,6 +41,23 @@ radio.getMode().then(result => {
 
 ## Features
 
+This page lists all commands that are directly accessible with the use of this library. These commands only provide a very simple high-level access to the features of your radio.
+
+:warning: For more advanced use cases I suggest that you may take a look at [this very extensive list of possible commands](https://github.com/flammy/fsapi/blob/master/FSAPI.md) and don't use the functions listed below but rather access the API via the following function for direct access:
+
+#### Direct Access
+```javascript
+radio.get('sys.sleep').then(console.log);
+radio.get('netRemote.sys.sleep').then(console.log);
+
+radio.set('sys.sleep', 60).then(console.log);
+
+radio.get('sys.info.friendlyname').then(console.log);
+radio.set('sys.audio.volume', 5).then(console.log);
+```
+
+---
+
 ### Power
 
 ```javascript

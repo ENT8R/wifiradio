@@ -1,7 +1,7 @@
 /* globals describe, it */
 const { assert, expect } = require('chai');
 
-const Wifiradio = require('../index.js');
+const Wifiradio = require('../lib/wifiradio.js');
 
 const ip = '192.168.178.27';
 const pin = '1234';
@@ -14,7 +14,7 @@ describe('wifiradio', function() {
   describe('#setPower()', () => {
     it('should indicate that the operation was successful', done => {
       radio.setPower(0).then(result => {
-        done(assert.equal(result.fsapiResponse.status, 'FS_OK'));
+        done(assert.equal(result.status, 'FS_OK'));
       }).catch(error => {
         done(error);
       });
@@ -43,7 +43,7 @@ describe('wifiradio', function() {
   describe('#setMute()', () => {
     it('should indicate that the operation was successful', done => {
       radio.setMute(0).then(result => {
-        done(assert.equal(result.fsapiResponse.status, 'FS_OK'));
+        done(assert.equal(result.status, 'FS_OK'));
       }).catch(error => {
         done(error);
       });
@@ -72,7 +72,7 @@ describe('wifiradio', function() {
   describe('#setMode()', () => {
     it('should indicate that the operation was successful', done => {
       radio.setMode(0).then(result => {
-        done(assert.equal(result.fsapiResponse.status, 'FS_OK'));
+        done(assert.equal(result.status, 'FS_OK'));
       }).catch(error => {
         done(error);
       });
@@ -93,7 +93,7 @@ describe('wifiradio', function() {
   describe('#setVolume()', () => {
     it('should indicate that the operation was successful', done => {
       radio.setVolume(6.4).then(result => {
-        done(assert.equal(result.fsapiResponse.status, 'FS_OK'));
+        done(assert.equal(result.status, 'FS_OK'));
       }).catch(error => {
         done(error);
       });
