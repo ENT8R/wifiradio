@@ -7,7 +7,6 @@
   ],
   "main": "lib/wifiradio.js",
   "scripts": {
-    "start": "node index.js",
     "lint": "npx eslint **/*.js",
     "test": "npm run lint",
     "mocha": "npx mocha"
@@ -16,9 +15,9 @@
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^7.11.0",
-    "mocha": "^8.2.0"
+    "chai": "^4.3.6",
+    "eslint": "^8.24.0",
+    "mocha": "^10.0.0"
   },
   "author": "ENT8R <info.ent8r@gmail.com>",
   "repository": {
