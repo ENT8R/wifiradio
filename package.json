@@ -12,11 +12,11 @@
     "mocha": "npx mocha"
   },
   "dependencies": {
-    "xml2js": "^0.4.23"
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "chai": "^4.3.7",
-    "eslint": "^8.36.0",
+    "eslint": "^8.47.0",
     "mocha": "^10.2.0"
   },
   "author": "ENT8R <info.ent8r@gmail.com>",
